@@ -15,7 +15,8 @@ FROM node:8.11.3-alpine
 RUN apk add --no-cache \
   tini \
   su-exec \ 
-  imagemagick
+  imagemagick \
+  git
 
 ## node comes with older version of yarn. Maybe need a better way to upgrade it?  
 RUN yarn global upgrade yarn@1.7.0 && yarn cache clean
