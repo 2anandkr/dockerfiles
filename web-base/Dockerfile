@@ -1,4 +1,4 @@
-FROM node:8.11.3-alpine
+FROM 8.12.0-alpine
 
 # Install Dependencies
 # tini
@@ -17,9 +17,6 @@ RUN apk add --no-cache \
   su-exec \ 
   imagemagick \
   git
-
-## node comes with older version of yarn. Maybe need a better way to upgrade it?  
-RUN yarn global upgrade yarn@1.7.0 && yarn cache clean
 
 # a script to handle user permissions:
 # It will change ownership of current directory and step-down from user "root" 
