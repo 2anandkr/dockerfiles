@@ -1,4 +1,4 @@
-FROM 8.12.0-alpine
+FROM node:8.12.0-alpine
 
 # Install Dependencies
 # tini
@@ -14,9 +14,7 @@ FROM 8.12.0-alpine
 # RUN apk del yarn
 RUN apk add --no-cache \
   tini \
-  su-exec \ 
-  imagemagick \
-  git
+  su-exec
 
 # a script to handle user permissions:
 # It will change ownership of current directory and step-down from user "root" 
