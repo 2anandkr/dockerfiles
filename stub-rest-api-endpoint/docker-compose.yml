@@ -1,0 +1,15 @@
+version: '2.1'
+
+services: 
+
+  sh:
+    image: anandkr/base-js
+    volumes:
+      - '${PWD}:/home/node/app'
+    command: sh
+  
+  app:
+    extends: sh
+    ports:
+      - 8080:8080
+    command: yarn start
