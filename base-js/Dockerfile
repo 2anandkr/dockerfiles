@@ -1,4 +1,4 @@
-FROM node:8.12.0-alpine
+FROM node:10.16.0-alpine
 
 # Install Dependencies
 # tini
@@ -27,5 +27,6 @@ RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 ENTRYPOINT ["/sbin/tini", "--", "docker-entrypoint.sh"]
 
 ENV APP_DIR /home/node/app
+# USER node
 RUN mkdir -p ${APP_DIR}
 WORKDIR ${APP_DIR}
