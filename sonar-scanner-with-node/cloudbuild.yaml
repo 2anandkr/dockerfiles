@@ -1,0 +1,18 @@
+# get the cli version tags from: https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      - "build"
+      - "--build-arg"
+      - "SONARQUBE_SCANNER_CLI_VERSION=4.0.0.1744"
+      - "-t"
+      - "gcr.io/$PROJECT_ID/sonar-scanner-with-node:latest"
+      - "-t"
+      - "gcr.io/$PROJECT_ID/sonar-scanner-with-node:4.0.0.1744"
+      - "."
+
+images:
+  - "gcr.io/$PROJECT_ID/sonar-scanner-with-node:latest"
+  - "gcr.io/$PROJECT_ID/sonar-scanner-with-node:4.0.0.1744"
+
+tags: ["cloud-builders-community"]
